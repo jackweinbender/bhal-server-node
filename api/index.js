@@ -11,6 +11,7 @@ var letters = require('./letters');
 
 var entries = require('./entries');
 	router.get('/entries', entries.getAll);
+	router.get('/entries/all', entries.getAllForce);
 	router.get('/entries/:id', entries.getOne);
 	router.post('/entries/', entries.create);
 	router.put('/entries/:id', entries.update);
@@ -18,10 +19,17 @@ var entries = require('./entries');
 
 var definitions = require('./definitions');
 	router.get('/definitions', definitions.getAll);
+	router.get('/definitions/all', definitions.getAllForce);
 	router.get('/definitions/:id', definitions.getOne);
 	router.post('/definitions/', definitions.create);
 	router.put('/definitions/:id', definitions.update);
 	router.delete('/definitions/:id', definitions.delete);
 
+var users = require('./users');
+	router.get('/users', users.getAll);
+	router.get('/users/:id', users.getOne);
+	router.post('/users/', users.create);
+	router.put('/users/:id', users.update);
+	router.delete('/users/:id', users.delete);
 
 module.exports = router;

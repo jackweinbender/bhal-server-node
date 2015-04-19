@@ -10,6 +10,8 @@ var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
   // Properties
+  firstName: String,
+  lastName: String,
   email: {
     type: String,
     required: true,
@@ -17,7 +19,8 @@ var userSchema = new Schema({
   },
   password: {
     type: String,
-    required: true
+    required: true,
+    select: false
   },
   authTokens: {
     facebook: String,
