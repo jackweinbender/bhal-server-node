@@ -66,13 +66,40 @@ var entries = {
     });
   },
   create: function(req, res){
-
+    Entries.create(req.body, function(err, data){
+      if(err){
+        res.json({
+          mesaage:err
+        });
+        return;
+      }
+      res.json(data);
+    });
   },
   update: function(req, res){
 
+    req.body.lastModified = new Date();
+
+    Entries.findByIdAndUpdate(req.params.id, req.body, function(err, data){
+      if(err){
+        res.json({
+          mesaage:err
+        });
+        return;
+      }
+      res.json(data);
+    });
   },
   delete: function(req, res){
-
+    Entries.findByIdAndRemove(req.params.id, function(err, data){
+      if(err){
+        res.json({
+          mesaage:err
+        });
+        return;
+      }
+      res.json(data);
+    });
   }
 }
 

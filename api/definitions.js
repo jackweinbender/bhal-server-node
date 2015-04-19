@@ -60,13 +60,38 @@ var definitions = {
     });
   },
   create: function(req, res){
-
+    Definitions.create(req.body, function(err, data){
+      if(err){
+        res.json({
+          mesaage:err
+        });
+        return;
+      }
+      res.json(data);
+    });
   },
   update: function(req, res){
-
+    req.body.lastModified = new Date();
+    Definitions.findByIdAndUpdate(req.params.id, req.body, function(err, data){
+      if(err){
+        res.json({
+          mesaage:err
+        });
+        return;
+      }
+      res.json(data);
+    });
   },
   delete: function(req, res){
-
+    Definitions.findByIdAndRemove(req.params.id, function(err, data){
+      if(err){
+        res.json({
+          mesaage:err
+        });
+        return;
+      }
+      res.json(data);
+    });
   }
 }
 

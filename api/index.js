@@ -12,16 +12,16 @@ var letters = require('./letters');
 var entries = require('./entries');
 	router.get('/entries', entries.getAll);
 	router.get('/entries/:id', entries.getOne);
-	// router.post('/entries/', entries.create);
-	// router.put('/entries/:id', entries.update);
-	// router.delete('/entries/:id', entries.delete);
+	router.post('/entries/', entries.create);
+	router.put('/entries/:id', entries.update);
+	router.delete('/entries/:id', entries.delete);
 
 var definitions = require('./definitions');
 	router.get('/definitions', definitions.getAll);
 	router.get('/definitions/:id', definitions.getOne);
-	// router.post('/definitions/', definitions.create);
-	// router.put('/definitions/:id', definitions.update);
-	// router.delete('/definitions/:id', definitions.delete);
+	router.post('/definitions/', definitions.create);
+	router.put('/definitions/:id', definitions.update);
+	router.delete('/definitions/:id', definitions.delete);
 
 
 module.exports = router;
