@@ -13,7 +13,7 @@ if (cluster.isMaster) {
     for (var i = 0; i < cpuCount; i += 1) {
         cluster.fork();
     }
-    console.log("Listening with " + cpuCount + " cors . . .")
+    console.log("Listening with " + cpuCount + " cores . . .")
 } else {
     /**
      * Module dependencies.

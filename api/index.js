@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var secretKey = require('../config').secret;
+var jwt = require('express-jwt');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -10,7 +12,7 @@ var letters = require('./letters');
 	router.get('/letters', letters.getAll);
 
 var entries = require('./entries');
-	router.get('/entries', entries.getAll);
+	router.get('/entries', jwt({secret: secretKey}), entries.getAll);
 	router.get('/entries/all', entries.getAllForce);
 	router.get('/entries/:id', entries.getOne);
 	router.post('/entries/', entries.create);
