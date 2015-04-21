@@ -8,7 +8,7 @@ var entries = {
     
     if(isEmpty(req.query)){
       // If no Query string exists, send this message
-      res.json({message:"Plesae include something in the query string"});
+      res.json({message:"Please include something in the query string"});
       return;
     }
     // Find Entries based on query object, limit to 500

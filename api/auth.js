@@ -46,10 +46,34 @@ var auth = {
   				return;
   			}
   			// Otherwise, respond with the token and dbUserObject
+        res.cookie('token', genToken(dbUserObject));
   			res.json(genToken(dbUserObject));
   			return;
   		});
   	});
+  },
+
+  loggedIn: function(req, res, next){
+    if(!req.headers.authorization){
+      res.status(401);
+      res.json({
+        status:401,
+        message:"You must be logged in to use this API Endpoint"
+      });
+      return;
+    }
+    jwt.verify(req.headers.authorization, hash, function(err, decoded) {
+      if(err){
+        res.status(401);
+        res.json({
+          status:401,
+          message:"Invalid webtoken",
+          err: err
+        });
+        return;
+      }
+      next();
+    });
   }
 }
  

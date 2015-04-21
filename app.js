@@ -29,9 +29,19 @@ app.all('/*', cors.setHeaders);
 /** Routes **/
 /************/
 
+
+/** OPEN **/
 var login = require('./api/login');
 app.use('/login', login);
 
+
+
+/** Restrict API access to Logged in Users **/
+var auth = require('./api/auth');
+app.use(auth.loggedIn);
+/********************************************/
+
+/** Closed **/
 var routes = require('./api/index');
 app.use('/api/v1', routes);
 
