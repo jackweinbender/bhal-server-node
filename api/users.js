@@ -49,7 +49,7 @@ var users = {
 
     req.body.lastModified = new Date();
 
-    Users.findByIdAndUpdate(req.params.id, req.body, function(err, oldData){
+    Users.findByIdAndUpdate(req.params.id, req.body.user, function(err, oldData){
       if (err) {
         res.json({
           message: err

@@ -79,11 +79,11 @@ var entries = {
   update: function(req, res){
 
     req.body.lastModified = new Date();
-
-    Entries.findByIdAndUpdate(req.params.id, req.body, function(err, data){
+    console.log(req.body);
+    Entries.findByIdAndUpdate(req.params.id, req.body.entry, function(err, data){
       if(err){
         res.json({
-          mesaage:err
+          message:err
         });
         return;
       }
