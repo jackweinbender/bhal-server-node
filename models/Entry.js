@@ -9,6 +9,7 @@ var entrySchema = new Schema({
   root:   String,
   strongs: Number,
   page: Number,
+  language: String,
   speech: String,
   basicDef: String,
   historicalForm: String,
