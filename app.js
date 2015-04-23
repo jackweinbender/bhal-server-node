@@ -45,11 +45,9 @@ app.use(auth.loggedIn);
 var routes = require('./api/index');
 app.use('/api/v1', routes);
 
-// Utilities routes (Dev Only)
-if (app.get('env') === 'development') {
-	var utils = require('./api/utils');
-  app.use('/utilities', utils);
-}
+// Utilities routes
+var utils = require('./api/utils');
+app.use('/utilities', utils);
 
 /********************/
 /** Error Handling **/
