@@ -1,7 +1,9 @@
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcrypt');
 var Users = require('../models/User');
-var hash = require('../config').secret;
+var env = process.env.NODE_ENV || 'development';
+var config = require('../config');
+var hash = config[env].secret;
  
 var auth = {
  
