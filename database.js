@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
-var d = require('./config').database;
+var config = require('./config');
+var env = process.env.NODE_ENV || 'development';
+var d = config[env].database;
 
 var login = 'mongodb://';
 	if(d.username && d.password){
