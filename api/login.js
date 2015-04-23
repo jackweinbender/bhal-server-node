@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var secretKey = require('../config').secret;
 var jwt = require('express-jwt');
 
 

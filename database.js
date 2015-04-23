@@ -1,17 +1,25 @@
 var mongoose = require('mongoose');
-var config = require('./config');
-var env = process.env.NODE_ENV || 'development';
-var d = config[env].database;
+
+if(!process.env.NODE_ENV){
+  var db = {
+    DB_User: '',
+    DB_PASSWORD: '',
+    DB_HOST:'localhost:',
+    DB_NAME:'bhal-server'
+  }
+} else {
+  var db = process.env;
+}
 
 var login = 'mongodb://';
-	if(d.username && d.password){
-		login += d.username;
+	if(db.DB_USER && db.DB_PASSWORD){
+		login += db.DB_USER;
 		login += ':';
-		login += d.password;
+		login += db.DB_PASSWORD;
 		login += "@";
 	}
-	login += d.host;
+	login += db.DB_HOST;
 	login += '/';
-	login += d.database;
+	login += db.DB_NAME;
 
 module.exports = mongoose.connect(login);
