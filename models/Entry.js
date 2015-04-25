@@ -14,6 +14,11 @@ var entrySchema = new Schema({
   basicDef: String,
   historicalForm: String,
   pattern: String,
+  // MetaData
+  isReconstructed: Boolean,
+  correctedTsade: Boolean,
+  isXref: Boolean,
+  rootAssignNote: String,
   // Relational properties
   definition: Schema.Types.ObjectId,
   morphology: Schema.Types.ObjectId,
