@@ -40,8 +40,13 @@ var entries = {
         res.json(err);
         return;
       }
-      // Return the Data
-      res.json(data);
+      // Build response object for Ember
+      var response_data = {
+        entries: data
+      };
+
+      // Send Response data as JSON
+      res.json(response_data);
       return;
     });
   },
@@ -87,7 +92,8 @@ var entries = {
         });
         return;
       }
-      res.json(data);
+      res.status(200);
+      res.json({entry: data});
     });
   },
   delete: function(req, res){
