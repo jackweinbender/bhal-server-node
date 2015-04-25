@@ -7,6 +7,7 @@ var entrySchema = new Schema({
   word:  String,
   letter: String,
   root:   String,
+  homonymNumber: String,
   strongs: Number,
   page: Number,
   language: String,
@@ -18,6 +19,7 @@ var entrySchema = new Schema({
   isReconstructed: Boolean,
   correctedTsade: Boolean,
   isXref: Boolean,
+  isRootEntry: Boolean,
   rootAssignNote: String,
   // Relational properties
   definition: Schema.Types.ObjectId,
