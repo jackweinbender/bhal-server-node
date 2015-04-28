@@ -18,6 +18,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 var cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
+var compression = require('compression');
+app.use(compression());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 
