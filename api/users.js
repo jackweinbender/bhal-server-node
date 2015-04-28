@@ -17,7 +17,7 @@ var users = {
         });
         return;
       }
-      res.json(data);
+      res.json({users: data});
       return;
     });
   },
@@ -30,7 +30,7 @@ var users = {
         });
         return;
       }
-      res.json(data);
+      res.json({user: data});
       return;
     });
   },
@@ -42,7 +42,7 @@ var users = {
         });
         return;
       }
-      res.json(data);
+      res.json({user: data});
       return;
     });
   },
