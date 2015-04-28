@@ -4,7 +4,7 @@ if(!process.env.NODE_ENV){
   var db = {
     DB_User: '',
     DB_PASSWORD: '',
-    DB_HOST:'localhost:',
+    DB_HOST:'localhost:27017',
     DB_NAME:'bhal-server'
   }
 } else {
