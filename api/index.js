@@ -35,6 +35,7 @@ var users = require('./users');
 	router.get('/users/:id', auth.loggedIn, users.getOne);
 	router.post('/users/', auth.loggedIn, users.create);
 	router.put('/users/:id', auth.loggedIn, users.update);
+	router.put('/users/:id/updatepassword', auth.loggedIn, users.updatePassword);
 	router.delete('/users/:id', auth.loggedIn, users.delete);
 
 module.exports = router;
