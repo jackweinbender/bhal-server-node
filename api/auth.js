@@ -51,7 +51,6 @@ var auth = {
   				return;
   			}
   			// Otherwise, respond with the token and dbUserObject
-        res.cookie('token', genToken(dbUserObject));
   			res.json(genToken(dbUserObject));
   			return;
   		});
