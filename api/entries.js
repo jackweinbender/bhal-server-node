@@ -11,8 +11,14 @@ var entries = {
       res.json({message:"Please include something in the query string"});
       return;
     }
-    // Find Entries based on query object, limit to 500
-    Entries.find(req.query, null, {sort:{entry:1}, limit:500}, function(err, data){
+
+    // Prepare the query (Include any extra limitations or expansions)
+    var findQuery = req.query;
+
+      // Exlude all non-xref entries ($ne = 'not equals')
+      findQuery.isXref = {$ne: true};
+
+    Entries.find(findQuery, null, {sort:{entry:1}}, function(err, data){
       // Return Err
       if(err){
         res.json(err);
