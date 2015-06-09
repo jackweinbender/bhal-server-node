@@ -12,13 +12,24 @@ var entries = {
       return;
     }
 
-    // Prepare the query (Include any extra limitations or expansions)
-    var findQuery = req.query;
+    // Exlude all xref entries ($ne = 'not equals')
+    // so long as the isXref = force flag is not set
+    if(req.query.isXref != 'force'){
+      req.query.isXref = {$ne: true};
+    } else {
+      delete req.query.isXref;
+    }
 
-      // Exlude all non-xref entries ($ne = 'not equals')
-      findQuery.isXref = {$ne: true};
+    // Exlude all Root-type entries ($ne = 'not equals')
+    // so long as the isRootEntry = force flag is not set
+    if(req.query.isRootEntry != 'force'){
+      req.query.isRootEntry = {$ne: true};
+    } else {
+      delete req.query.isRootEntry;
+    }
 
-    Entries.find(findQuery, null, {sort:{entry:1}}, function(err, data){
+    // Execute the query for entries based on query parameters
+    Entries.find(req.query, null, {sort:{entry:1}}, function(err, data){
       // Return Err
       if(err){
         res.json(err);
