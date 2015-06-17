@@ -72,14 +72,16 @@ var definitions = {
   },
   update: function(req, res){
     req.body.lastModified = new Date();
+    console.log(req.body.definition);
     Definitions.findByIdAndUpdate(req.params.id, req.body.definition, function(err, data){
       if(err){
         res.json({
-          mesaage:err
+          message:err
         });
         return;
       }
-      res.json(data);
+      res.status(200);
+      res.json({definition: data});
     });
   },
   delete: function(req, res){
