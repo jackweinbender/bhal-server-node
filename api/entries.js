@@ -5,7 +5,7 @@ var entries = {
   /**  Get With Query (500) **/
   /***************************/
   getAll: function(req, res){
-    
+
     if(isEmpty(req.query)){
       // If no Query string exists, send this message
       res.json({message:"Please include something in the query string"});
@@ -110,7 +110,7 @@ var entries = {
         return;
       }
       res.status(200);
-      res.json({entry: data});
+      res.json({message: 'Entry Saved'});
     });
   },
   delete: function(req, res){

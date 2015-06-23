@@ -71,7 +71,7 @@ var definitions = {
     });
   },
   update: function(req, res){
-    req.body.lastModified = new Date();
+    req.body.definition.lastModified = new Date();
     console.log(req.body.definition);
     Definitions.findByIdAndUpdate(req.params.id, req.body.definition, function(err, data){
       if(err){
@@ -81,7 +81,7 @@ var definitions = {
         return;
       }
       res.status(200);
-      res.json({definition: data});
+      res.json({message: 'Definitions Saved'});
     });
   },
   delete: function(req, res){
