@@ -21,7 +21,7 @@ var users = {
       return;
     });
   },
- 
+
   getOne: function(req, res){
     Users.findById(req.params.id, function(err, data){
       if (err) {
@@ -35,7 +35,7 @@ var users = {
     });
   },
   create: function(req, res){
-    Users.create(req.body, function(err, data){
+    Users.create(req.body.user, function(err, data){
       if (err) {
         res.json({
           message: err
@@ -57,7 +57,7 @@ var users = {
         });
         return;
       }
-      res.json(oldData);
+      res.json({user: oldData});
       return;
     });
   },
@@ -108,7 +108,7 @@ var users = {
         });
         return;
       }
-      res.json(removed);
+      res.json({user: removed});
       return;
     });
   }
