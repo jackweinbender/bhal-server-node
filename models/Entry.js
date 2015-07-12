@@ -14,6 +14,7 @@ var entrySchema = new Schema({
   speech: String,
   basicDef: String,
   historicalForm: String,
+  rootFamily: String,
   pattern: String,
   // MetaData
   isReconstructed: Boolean,

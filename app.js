@@ -40,8 +40,8 @@ app.use('/login', login);
 
 
 /** Restrict API access to Logged in Users **/
-var auth = require('./api/auth');
-app.use(auth.loggedIn);
+// var auth = require('./api/auth');
+// app.use(auth.loggedIn);
 /********************************************/
 
 /** Closed **/
